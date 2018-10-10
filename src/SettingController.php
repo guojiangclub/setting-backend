@@ -41,36 +41,6 @@ class SettingController
     }
 
     /**
-     * Edit interface.
-     *
-     * @param $id
-     *
-     * @return Content
-     */
-    public function edit($id)
-    {
-        return Admin::content(function (Content $content) use ($id) {
-            $content->header('header');
-            $content->description('description');
-            $content->body($this->form()->edit($id));
-        });
-    }
-
-    /**
-     * Create interface.
-     *
-     * @return Content
-     */
-    public function create()
-    {
-        return Admin::content(function (Content $content) {
-            $content->header('header');
-            $content->description('description');
-            $content->body($this->form());
-        });
-    }
-
-    /**
      * @return Grid
      */
     public function grid()
@@ -93,6 +63,22 @@ class SettingController
     }
 
     /**
+     * Edit interface.
+     *
+     * @param $id
+     *
+     * @return Content
+     */
+    public function edit($id)
+    {
+        return Admin::content(function (Content $content) use ($id) {
+            $content->header('header');
+            $content->description('description');
+            $content->body($this->form()->edit($id));
+        });
+    }
+
+    /**
      * @return Form
      */
     public function form()
@@ -103,6 +89,20 @@ class SettingController
             $form->textarea('value')->rules('required');
             $form->display('created_at');
             $form->display('updated_at');
+        });
+    }
+
+    /**
+     * Create interface.
+     *
+     * @return Content
+     */
+    public function create()
+    {
+        return Admin::content(function (Content $content) {
+            $content->header('header');
+            $content->description('description');
+            $content->body($this->form());
         });
     }
 }
