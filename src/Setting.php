@@ -38,7 +38,7 @@ class Setting extends Extension
         parent::routes(function ($router) {
             /* @var \Illuminate\Routing\Router $router */
             $router->resource(
-                config('admin.extensions.setting.name', 'setting'),
+                config('admin.extensions.setting.name', 'sysSetting'),
                 config('admin.extensions.setting.controller', SettingController::class)
             );
         });
@@ -49,7 +49,7 @@ class Setting extends Extension
      */
     public static function import()
     {
-        parent::createMenu('Setting', 'setting', 'fa-toggle-on', 1);
-        parent::createPermission('System Setting', 'ext.setting', 'setting*');
+        parent::createMenu('Setting', 'sysSetting', 'fa-toggle-on', 1);
+        parent::createPermission('System Setting', 'ext.setting', 'sysSetting*');
     }
 }

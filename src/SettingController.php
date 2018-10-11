@@ -71,7 +71,7 @@ class SettingController
      */
     public function show($id)
     {
-        return redirect()->route('setting.edit', ['id' => $id]);
+        return redirect()->route('sysSetting.edit', ['id' => $id]);
     }
 
     /**
